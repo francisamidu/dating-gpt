@@ -1,5 +1,5 @@
 import App from "./App";
 import Button from "./Button";
-import Navbar from "./Navbar";
+import Hero from "./Hero";
 
-export { App, Button, Navbar };
+export { App, Button, Hero };
