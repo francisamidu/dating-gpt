@@ -1,7 +1,11 @@
 import React from "react";
 
 const MainContent = () => {
-  return <section></section>;
+  return (
+    <section>
+      <p>This is datingGPT</p>
+    </section>
+  );
 };
 
 export default MainContent;
