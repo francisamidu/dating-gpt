@@ -11,7 +11,7 @@ const Hero = () => {
           Get any <span className="text-purplish-500">dating</span> advice from
           your own personal AI
         </h1>
-        <p className="my-8 text-gray-600">
+        <p className="m-8 text-gray-600">
           From
           <span className="font-bold mx-1">how to talk to girls</span>to what to
           say in a text to what to wear on your date we have all the advice you
