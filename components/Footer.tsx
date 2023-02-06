@@ -3,7 +3,7 @@ import { Twitter, Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="px-4 sticky bottom-0 w-full bg-white">
+    <footer className="px-4 w-full bg-white">
       <div className="max-w-screen-lg md:mx-auto  flex flex-row items-center justify-between">
         <p>
           Powered by{" "}
@@ -13,10 +13,10 @@ const Footer = () => {
         </p>
         <div className="flex flex-row items-center">
           <a href="https://twitter.com/iamfrancisamidu" className="font-bold">
-            <Twitter color="#054ccf" className="mr-1" size={20} />
+            <Twitter color="#054ccf" className="mr-2" size={25} />
           </a>
           <a href="https://github.com/francisamidu" className="font-bold">
-            <Github color="#000" className="ml-1" size={20} />
+            <Github color="#000" className="ml-2" size={25} />
           </a>
         </div>
       </div>

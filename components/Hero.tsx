@@ -8,8 +8,8 @@ const Hero = () => {
     <section className="my-28 flex flex-col items-center justify-center text-center">
       <div className="md:w-3/5">
         <h1 className="px-4 text-4xl font-bold capitalize md:px-0 md:text-6xl md:leading-[4rem]">
-          Get any <span className="text-purplish-500">dating</span> advice from
-          your own personal AI
+          Get any <span className="text-redish-500">dating</span> advice from{" "}
+          <span className="text-redish-500">{shared.name}</span> AI
         </h1>
         <p className="m-8 text-gray-600">
           From

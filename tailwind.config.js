@@ -1,7 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  media: false,
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -10,10 +12,8 @@ module.exports = {
           700: "#b1026e"
         }
       }
+
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }
