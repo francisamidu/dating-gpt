@@ -1,12 +1,11 @@
 import { ReactNode } from "react";
-import { Hero, Layout, MainContent } from "../components";
+import { Hero, Layout } from "../components";
 
 const Home = () => {
   return (
     <>
       <main className="w-full min-h-[85vh] min-w-[90vh] flex flex-col justify-between">
         <Hero />
-        <MainContent />
       </main>
     </>
   );

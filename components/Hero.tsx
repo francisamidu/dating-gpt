@@ -2,8 +2,13 @@ import React from "react";
 import { Button } from ".";
 import { ArrowRight } from "lucide-react";
 import shared from "../shared.json";
+import { useRouter } from "next/router";
 
 const Hero = () => {
+  const router = useRouter();
+  const redirectToAdvicePage = () => {
+    router.push("/advice");
+  };
   return (
     <section className="my-24 flex flex-col items-center justify-center text-center">
       <div className="md:w-3/5">
@@ -21,6 +26,7 @@ const Hero = () => {
           classNames="px-7 py-4 !rounded-3xl"
           icon={<ArrowRight color="#fff" className="ml-3" size={20} />}
           text={`Ask ${shared.name}`}
+          onClick={redirectToAdvicePage}
         />
       </div>
     </section>
