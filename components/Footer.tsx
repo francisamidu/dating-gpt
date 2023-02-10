@@ -3,7 +3,7 @@ import { Twitter, Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="px-4 w-full bg-white">
+    <footer className="p-4 w-full bg-white">
       <div className="max-w-screen-lg md:mx-auto  flex flex-row items-center justify-between">
         <p>
           Powered by{" "}
