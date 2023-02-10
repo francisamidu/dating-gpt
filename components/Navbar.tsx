@@ -15,7 +15,7 @@ const Navbar = () => {
           {shared.name}
         </Link>
         <Button
-          icon={<Github color="#000" size={20} />}
+          icon={<Github color="#334155" size={20} />}
           iconPosition="left"
           classNames="border-none !bg-white !text-slate-700 shadow-md rounded-3xl text-inherit hover:bg-white"
           text="Star on Github"

@@ -38,7 +38,7 @@ const Advice = () => {
             }
           />
           <Button
-            classNames="bg-slate-800 hover:bg-slate-700 !text-base !rounded-3xl block my-4 flex flex-row items-center justify-center"
+            classNames="!bg-slate-800 !hover:bg-slate-700 !text-base !rounded-md my-4 flex flex-row items-center justify-center"
             icon={<ArrowRight color="#fff" className="ml-3" size={20} />}
             text="Get Advice"
             onClick={generateAdvice}
