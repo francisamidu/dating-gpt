@@ -13,7 +13,7 @@ const Layout = ({ children, page }: LayoutProps) => {
         <meta name="title" content={`${page} | DatingGPT`}></meta>
         <meta name="description" content="DatingGPT"></meta>
       </Head>
-      <main className="flex flex-col justify-between min-h-screen">
+      <main className=" min-h-screen">
         <Navbar />
         {children}
         <Footer />
