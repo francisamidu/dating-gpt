@@ -13,10 +13,10 @@ const Footer = () => {
         </p>
         <div className="flex flex-row items-center">
           <a href="https://twitter.com/iamfrancisamidu" className="font-bold">
-            <Twitter color="#054ccf" className="mr-2" size={25} />
+            <Twitter className="mr-2" size={25} />
           </a>
           <a href="https://github.com/francisamidu" className="font-bold">
-            <Github color="#000" className="ml-2" size={25} />
+            <Github className="ml-2" size={25} />
           </a>
         </div>
       </div>
