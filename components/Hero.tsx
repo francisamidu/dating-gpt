@@ -5,7 +5,7 @@ import shared from "../shared.json";
 
 const Hero = () => {
   return (
-    <section className="my-28 flex flex-col items-center justify-center text-center">
+    <section className="my-24 flex flex-col items-center justify-center text-center">
       <div className="md:w-3/5">
         <h1 className="px-4 text-4xl font-bold capitalize md:px-0 md:text-6xl md:leading-[4rem]">
           Get any <span className="text-redish-500">dating</span> advice from{" "}
