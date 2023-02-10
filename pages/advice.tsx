@@ -1,5 +1,6 @@
+import { ArrowRight } from "lucide-react";
 import React, { ReactNode, useState } from "react";
-import { Layout } from "../components";
+import { Button, Layout } from "../components";
 
 const Advice = () => {
   const [num, setNum] = useState(42005);
@@ -7,6 +8,8 @@ const Advice = () => {
   const [generatedAdvice, setGeneratedAdvice] = useState("");
   const formatter = Intl.NumberFormat();
   const text = `Helped ${formatter.format(num)} users so far `;
+
+  const generateAdvice = async () => {};
 
   return (
     <section className="h-full md:max-w-[1100px] md:mx-auto my-10 flex flex-col items-center ">
@@ -34,14 +37,22 @@ const Advice = () => {
               "e.g. What should I wear for a first date with a colleague?"
             }
           />
+          <Button
+            classNames="bg-slate-800 hover:bg-slate-700 !text-base !rounded-3xl block my-4 flex flex-row items-center justify-center"
+            icon={<ArrowRight color="#fff" className="ml-3" size={20} />}
+            text="Get Advice"
+            onClick={generateAdvice}
+          />
         </form>
         <div className="mt-5">
           <h1 className="font-bold text-3xl mb-5 text-slate-700">
             Your generated Advice
           </h1>
-          <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border">
-            <p>{generatedAdvice}</p>
-          </div>
+          {generatedAdvice ? (
+            <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border">
+              <p>{generatedAdvice}</p>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
