@@ -7,15 +7,14 @@ const MainButton = ({
   iconPosition,
   text,
   onClick,
-  param,
 }: ButtonProps) => {
   let position = iconPosition ? iconPosition : "right";
   const style =
     "text-white bg-redish-700 hover:bg-redish-500 font-medium rounded text-sm px-5 py-2.5 text-center inline-flex items-center outline-none";
   const styles = classNames ? `${style} ${classNames}` : style;
   const handleClick = () => {
-    if (onClick && param) {
-      onClick(param);
+    if (onClick) {
+      onClick();
     }
   };
   return (
