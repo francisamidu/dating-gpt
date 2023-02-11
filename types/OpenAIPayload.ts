@@ -1,4 +1,4 @@
-export interface OpenAIStreamPayload {
+export interface OpenAIPayload {
   model: string;
   prompt: string;
   temperature: number;
