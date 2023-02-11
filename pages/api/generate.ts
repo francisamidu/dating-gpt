@@ -6,6 +6,7 @@ if (!process.env.OPENAI_API_KEY) {
 }
 
 const handler = async (req: NextRequest): Promise<Response> => {
+  console.log(req);
   const { prompt } = (await req.json()) as {
     prompt?: string;
   };

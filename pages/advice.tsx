@@ -9,13 +9,12 @@ const Advice = () => {
   const formatter = Intl.NumberFormat();
   const text = `Helped ${formatter.format(num)} users so far `;
 
-  const generateAdvice = async (e: any) => {
+  const generateAdvice = async () => {
     if (!advice) return;
     const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
       advice.slice(-1) === "." ? "" : "."
     }`;
 
-    e.preventDefault();
     setGeneratedAdvice("");
 
     const response = await fetch("/api/generate", {
@@ -29,7 +28,8 @@ const Advice = () => {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      // throw new Error();
+      console.log(response.statusText);
     }
 
     const data = await response.json();
@@ -67,7 +67,7 @@ const Advice = () => {
             classNames="!bg-slate-800 !hover:bg-slate-700 !text-base !rounded-md my-4 flex flex-row items-center justify-center"
             icon={<ArrowRight color="#fff" className="ml-3" size={20} />}
             text="Get Advice"
-            onClick={(e: any) => generateAdvice(e)}
+            onClick={generateAdvice}
           />
         </form>
         <div className="mt-5">
