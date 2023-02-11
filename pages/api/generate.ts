@@ -1,14 +1,15 @@
 import type { NextRequest } from "next/server";
 import type { OpenAIPayload } from "../../types/OpenAIPayload";
+import { getEnv } from "../../utils/getEnv";
 
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error("Missing env var from OpenAI");
+const env = getEnv();
+if (!env) {
+  throw new Error("Missing env Var");
 }
 
 const handler = async (req: NextRequest): Promise<Response> => {
-  console.log(req);
   const { prompt } = (await req.json()) as {
-    prompt?: string;
+    prompt: string;
   };
 
   if (!prompt) {
