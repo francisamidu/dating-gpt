@@ -28,12 +28,11 @@ const Advice = () => {
     });
 
     if (!response.ok) {
-      // throw new Error();
       console.log(response.statusText);
     }
-    console.log(response.statusText);
 
-    const data = await response.text();
+    const data = await response.json();
+    console.log(data);
 
     setGeneratedAdvice((prev) => prev + data);
   };

@@ -7,16 +7,18 @@ if (!env) {
   throw new Error("Missing env Var");
 }
 type NextResponse = {
-  value: string;
+  message: string;
 };
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<NextResponse>
-): Promise<Response> => {
+): Promise<any> => {
   try {
     const { prompt } = req.body;
     if (!prompt) {
-      return new Response("No prompt in the request", { status: 400 });
+      res.status(400).json({
+        message: "No prompt in the request",
+      });
     }
 
     const payload: OpenAIPayload = {
@@ -42,14 +44,11 @@ const handler = async (
 
     // const data = await res?.json();
     // return data;
-    return new Response(
-      JSON.stringify({
-        "1": "This is what i mean",
-      })
-    );
+    res.status(200).json({
+      message: "Received. This message is from the API",
+    });
   } catch (error) {
-    throw new Error("Something went wrong");
-    // res.status(400).json({message:"Something went wrong"})
+    res.status(400).json({ message: "Something went wrong" });
   }
 };
 
