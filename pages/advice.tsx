@@ -11,11 +11,10 @@ const Advice = () => {
   const text = `Helped ${formatter.format(num)} users so far `;
 
   const generateAdvice = async () => {
-    // if (!advice) return;
-    const prompt = "";
-    // const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
-    //   advice.slice(-1) === "." ? "" : "."
-    // }`;
+    if (!advice) return;
+    const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
+      advice.slice(-1) === "." ? "" : "."
+    }`;
 
     setGeneratedAdvice("");
 
@@ -40,7 +39,7 @@ const Advice = () => {
   };
 
   return (
-    <section className="h-full md:max-w-[1100px] md:mx-auto my-10 flex flex-col items-center ">
+    <section className="h-full md:max-w-[1100px] md:mx-auto my-10 flex flex-col flex-1 items-center ">
       <div className="text-center md:w-3/5">
         <h1 className="font-bold text-4xl mb-3 text-slate-700">
           Get any piece of relationship advice in seconds
