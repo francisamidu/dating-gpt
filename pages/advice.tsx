@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import React, { ReactNode, useState } from "react";
+import { toast } from "react-toastify";
 import { Button, Layout } from "../components";
 
 const Advice = () => {
@@ -10,10 +11,11 @@ const Advice = () => {
   const text = `Helped ${formatter.format(num)} users so far `;
 
   const generateAdvice = async () => {
-    if (!advice) return;
-    const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
-      advice.slice(-1) === "." ? "" : "."
-    }`;
+    // if (!advice) return;
+    const prompt = "";
+    // const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
+    //   advice.slice(-1) === "." ? "" : "."
+    // }`;
 
     setGeneratedAdvice("");
 
@@ -27,14 +29,14 @@ const Advice = () => {
       }),
     });
 
+    const data = await response.json();
+    const { message } = data;
+
     if (!response.ok) {
-      console.log(response.statusText);
+      toast.error(message);
     }
 
-    const data = await response.json();
-    console.log(data);
-
-    setGeneratedAdvice((prev) => prev + data);
+    setGeneratedAdvice((prev) => prev + message);
   };
 
   return (
