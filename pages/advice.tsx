@@ -2,23 +2,24 @@ import { ArrowRight } from "lucide-react";
 import React, { ReactNode, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Layout } from "../components";
+import { fetcher, OpenAIResponse } from "../types";
+import { NextResponse } from "../types/NextResponse";
 
 const Advice = () => {
   const [num, setNum] = useState(42005);
   const [advice, setAdvice] = useState("");
-  const [generatedAdvice, setGeneratedAdvice] = useState("");
+  const [generatedAdvice, setGeneratedAdvice] = useState([""]);
   const formatter = Intl.NumberFormat();
   const text = `Helped ${formatter.format(num)} users so far `;
 
   const generateAdvice = async () => {
     if (!advice) return;
-    const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and clearly labeled "1.","2." and "3.". Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
+    const prompt = `Generate 3 pieces of relationship advice for a total newbie with best practices and. Make sure each generated piece of advices is at max 20 words and base it on this context: ${advice}${
       advice.slice(-1) === "." ? "" : "."
     }`;
 
-    setGeneratedAdvice("");
-
-    const response = await fetch("/api/generate", {
+    setGeneratedAdvice([""]);
+    const response = await fetcher<OpenAIResponse>("/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,14 +29,18 @@ const Advice = () => {
       }),
     });
 
-    const data = await response.json();
-    const { message } = data;
-
-    if (!response.ok) {
-      toast.error(message);
+    if (!response.choices?.length) {
+      toast.error("Something went wrong");
     }
 
-    setGeneratedAdvice((prev) => prev + message);
+    const newAdvice = response?.choices?.length
+      ? response?.choices[0]?.text
+          .split(/(\d+)/)
+          .map((val) => val.replace(".", "").trim())
+          .filter((val) => isNaN(Number(val)))
+      : [""];
+    console.log(newAdvice);
+    setGeneratedAdvice(newAdvice);
   };
 
   return (
@@ -75,11 +80,13 @@ const Advice = () => {
           <h1 className="font-bold text-3xl mb-5 text-slate-700">
             Your generated Advice
           </h1>
-          {generatedAdvice ? (
-            <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border">
-              <p>{generatedAdvice}</p>
-            </div>
-          ) : null}
+          {generatedAdvice.length > 1
+            ? generatedAdvice?.map((advice) => (
+                <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border mb-2">
+                  <p>{advice}</p>
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </section>
