@@ -14,7 +14,7 @@ const MainButton = ({
   const styles = classNames ? `${style} ${classNames}` : style;
   const handleClick = () => {
     if (onClick) {
-      onClick();
+      onClick(null);
     }
   };
   return (
