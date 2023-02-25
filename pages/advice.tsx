@@ -82,7 +82,7 @@ const Advice = () => {
           </h1>
           {generatedAdvice.length > 1
             ? generatedAdvice?.map((advice) => (
-                <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border mb-2">
+                <div className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border mb-2" key={JSON.stringify(advice)}>
                   <p>{advice}</p>
                 </div>
               ))
